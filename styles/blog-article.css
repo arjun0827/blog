@@ -1,0 +1,23 @@
+article {
+  margin: 0 auto;
+  width: 40%;
+}
+
+.caption {
+  font-style: italic;
+  font-size: 0.6rem;
+}
+
+.author {
+  display: block;
+  margin-top: 10px;
+  font-size: 0.6rem;
+}
+
+.codes {
+  background-color: azure;
+}
+
+span {
+  font-size: 0.5rem;
+}

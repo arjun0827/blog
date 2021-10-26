@@ -1,0 +1,10 @@
+img {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+
+.images {
+  width: 1rem;
+  height: 1rem;
+}

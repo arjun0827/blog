@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/debugger-.css" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/article.css" />
+    <link rel="stylesheet" href="./styles/img.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Blog Site</title>
+
+    <style>
+      h3,
+      p {
+        margin-bottom: 0.5rem;
+      }
+
+      time {
+        font: 300 0.5rem /1.2 "Roboto";
+      }
+      h3 {
+        font: 300 1rem /1.2 "Roboto";
+      }
+      p {
+        font: 300 0.8rem /1.2 "Roboto";
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="div1">
+        <img
+          src="https://divyanshu013.dev/static/7e59d277befe1da9294ce1e4e2af9b0a/6766a/profile-pic.webp"
+          alt="Not found"
+        />
+        <h3>Ilon Mosk</h3>
+        <p>Life, music, code and things in between…</p>
+        <img class="images" src="./images/facebook.png" alt="Not found" />
+        <img class="images" src="./images/github.png" alt="Not found" />
+        <img class="images" src="./images/twitter-square.png" alt="Not found" />
+      </div>
+
+      <div id="div2">
+        <article>
+          <time datetime="10-23-2020">Oct 23,2020</time>
+          <a href="/blog.html" target="_blank"
+            ><h3>Adding comments to Gatsby with Utterances</h3></a
+          >
+          <p>
+            How I added comments backed by GitHub on my Gatsby blog with
+            utteranc.es
+          </p>
+        </article>
+
+        <article>
+          <time datetime="10-25-2020">Oct 25,2020</time>
+          <a href="/blog.html"> <h3>Ten things I’ve learnt</h3></a>
+          <p>
+            A personal list of ten things I’ve learnt condensed into one post
+          </p>
+        </article>
+
+        <article>
+          <time datetime="10-27-2020">Oct 27,2020</time>
+          <a href="/blog.html"
+            ><h3>React debounce and throttle with hooks</h3></a
+          >
+          <p>How to use debounce and throttle and abstract them into hooks</p>
+        </article>
+
+        <article>
+          <time datetime="10-29-2020">Oct 29,2020</time>
+          <a href="/blog.html"><h3>Active record pattern in Typeorm</h3></a>
+          <p>
+            Comparing active record pattern with the data mapper pattern and
+            when to use which
+          </p>
+        </article>
+
+        <article>
+          <time datetime="10-31-2020">Oct 31,2020</time>
+          <a href="/blog.html"><h3>Use Variable Fonts</h3></a>
+          <p>A concise guide on why and how to use variable fonts on the web</p>
+        </article>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/debugger-.css" />
+    <link rel="stylesheet" href="./styles/reset.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/blog-article.css" />
+
+    <title>Blogs</title>
+    <style>
+      h4,
+      p,
+      h1 {
+        margin-bottom: 0.9rem;
+      }
+
+      h1 {
+        font: 300 1.6rem /1.2 "Roboto";
+      }
+
+      time {
+        font: 300 0.5rem /1.2 "Roboto";
+      }
+      h4 {
+        font: 300 1rem /1.2 "Roboto";
+      }
+      p {
+        font: 300 0.6rem /1.2 "Roboto";
+      }
+
+      code {
+        font: 300 0.5rem/1.2 "Roboto";
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <time datetime="10-23-2020">Oct 23,2020</time>
+      <h1>Adding comments to Gatsby with Utterances</h1>
+      <p>
+        For quite some time I’ve had my eyes set on this awesome project -
+        utteranc.es. It seemed to be the perfect fit for my needs - a
+        lightweight client side comments system with control over data.
+      </p>
+      <h4>Comments component I created a Comments component which inse</h4>
+      <p>
+        I created a Comments component which inserts the script tag for loading
+        utteranc.es into the DOM.
+      </p>
+
+      <pre>
+          <div class="codes">
+                      <code>
+            // Comments.jsx
+
+import React, { useContext, useEffect } from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+
+import ThemeContext from './ThemeContext';
+
+const commentNodeId = 'comments';
+
+const Comments = () => {
+	// this query is for retrieving the repo name from gatsby-config
+	const data = useStaticQuery(graphql`
+		query RepoQuery {
+			site {
+				siteMetadata {
+					repo
+				}
+			}
+		}
+	`);
+	const { theme } = useContext(ThemeContext);
+
+	useEffect(() => {
+		// docs - https://utteranc.es/
+		const script = document.createElement('script');
+		script.src = 'https://utteranc.es/client.js';
+		script.async = true;
+		script.setAttribute('repo', data.site.siteMetadata.repo);
+		script.setAttribute('issue-term', 'pathname');
+		script.setAttribute('label', 'comment :speech_balloon:');
+		script.setAttribute(
+			'theme',
+			theme === 'dark' ? 'github-dark' : 'github-light',
+		);
+		script.setAttribute('crossorigin', 'anonymous');
+
+		const scriptParentNode = document.getElementById(commentNodeId);
+		scriptParentNode.appendChild(script);
+
+		return () => {
+			// cleanup - remove the older script with previous theme
+			scriptParentNode.removeChild(scriptParentNode.firstChild);
+		};
+	}, [data, theme]);
+
+	return <div id={commentNodeId} />;
+};
+
+export default Comments;
+            
+        </code>
+        </div>
+       </pre>
+      <div class="caption">
+        <p>
+          It is our choices that show what we truly are, far more than our
+          abilities. - J. K. Rowling
+        </p>
+        <small class="author">Albus Dumbledore - Harry Potter</small>
+      </div>
+    </article>
+  </body>
+</html>

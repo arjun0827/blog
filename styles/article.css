@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  justify-content: center;
+  column-gap: 30px;
+  margin-top: 50px;
+}
+.div1 {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+}
+
+article {
+  width: 80%;
+}
